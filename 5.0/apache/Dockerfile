@@ -73,7 +73,7 @@ RUN set -ex; \
         \
         tar xzvf "/tmp/limesurvey.tar.gz" --strip-components=1 -C /var/www/html/ && \
         rm -f "/tmp/limesurvey.tar.gz" && \
-        chown -R "$USER:$USER" /var/www/html /etc/apache2
+        chown -R "$USER:0" /var/www/html /etc/apache2 && chmod -R g=u /var/www/html /etc/apache2
 
 EXPOSE $LISTEN_PORT
 
